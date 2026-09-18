@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>D-MEX | Open Market</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#d2d0cf",
+                    "on-primary-fixed": "#014500",
+                    "tertiary-fixed": "#ff9385",
+                    "inverse-on-surface": "#555555",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-tertiary-fixed": "#3a0001",
+                    "tertiary": "#ff7162",
+                    "surface-tint": "#9fff88",
+                    "outline-variant": "#484848",
+                    "on-error": "#450900",
+                    "on-surface-variant": "#ababab",
+                    "on-tertiary": "#4a0001",
+                    "surface-container-lowest": "#000000",
+                    "primary": "#9fff88",
+                    "on-secondary-fixed": "#403f3f",
+                    "inverse-primary": "#026f00",
+                    "on-background": "#ffffff",
+                    "secondary-container": "#474646",
+                    "tertiary-fixed-dim": "#ff7c6c",
+                    "on-primary-fixed-variant": "#026500",
+                    "primary-container": "#00fd00",
+                    "surface-dim": "#0e0e0e",
+                    "error-container": "#b92902",
+                    "on-error-container": "#ffd2c8",
+                    "primary-fixed": "#00fd00",
+                    "tertiary-dim": "#e2241f",
+                    "surface-container-high": "#1f1f1f",
+                    "background": "#0e0e0e",
+                    "surface-bright": "#2c2c2c",
+                    "error-dim": "#d53d18",
+                    "on-primary-container": "#015a00",
+                    "outline": "#757575",
+                    "error": "#ff7351",
+                    "secondary": "#e5e2e1",
+                    "primary-dim": "#01ed00",
+                    "surface-container": "#191919",
+                    "on-secondary": "#525151",
+                    "surface": "#0e0e0e",
+                    "on-surface": "#ffffff",
+                    "surface-container-highest": "#262626",
+                    "on-secondary-fixed-variant": "#5c5b5b",
+                    "on-tertiary-container": "#000000",
+                    "secondary-fixed-dim": "#d7d4d3",
+                    "surface-variant": "#262626",
+                    "surface-container-low": "#131313",
+                    "inverse-surface": "#f9f9f9",
+                    "secondary-dim": "#d7d4d3",
+                    "on-primary": "#026400",
+                    "on-tertiary-fixed-variant": "#7a0004",
+                    "primary-fixed-dim": "#01ed00",
+                    "tertiary-container": "#f9362c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-bg {
+            background: radial-gradient(circle at 2px 2px, rgba(159, 255, 136, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0e0e0e; }
+        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 10px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen kinetic-bg pb-24">
+<!-- TopAppBar -->
+<header class="bg-[#0e0e0e] flex justify-between items-center px-6 h-16 w-full fixed top-0 z-[100] border-b border-white/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#9fff88]">security</span>
+<span class="text-2xl font-black text-[#9fff88] drop-shadow-[0_0_8px_rgba(159,255,136,0.4)] font-['Space_Grotesk'] tracking-tight">D-MEX</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-surface-container px-3 py-1 rounded-full">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-mono text-[10px] text-primary">SCROLL SEPOLIA</span>
+</div>
+<span class="material-symbols-outlined text-[#ababab] hover:bg-[#262626] transition-colors p-2 rounded-lg cursor-pointer">settings</span>
+</div>
+</header>
+<main class="pt-20 px-4 max-w-lg mx-auto">
+<!-- Headline Section -->
+<section class="mb-8">
+<h1 class="font-headline text-4xl font-bold tracking-tighter text-on-surface mb-2">GameFi Barter Board</h1>
+<p class="text-on-surface-variant text-sm font-medium leading-relaxed">Live swap intents from the D-MEX Vault on Scroll Sepolia</p>
+</section>
+<!-- Arbiter Guardian V3.0 Panel -->
+<section class="mb-8 bg-surface-container rounded-xl overflow-hidden shadow-2xl">
+<div class="p-4 flex items-center justify-between bg-surface-container-highest/50 border-b border-outline-variant/10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+<h2 class="font-headline font-bold text-sm tracking-widest uppercase">Arbiter Guardian V3.0</h2>
+</div>
+<span class="text-[10px] font-mono text-on-surface-variant">V3.0.4-STABLE</span>
+</div>
+<div class="p-4 grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-3 rounded-lg">
+<span class="text-[10px] font-label text-on-surface-variant block mb-1">Network Velocity</span>
+<div class="flex items-end gap-2">
+<span class="text-xl font-headline font-bold text-primary">48.2</span>
+<span class="text-[10px] font-mono text-on-surface-variant mb-1">TX/S</span>
+</div>
+<div class="mt-2 h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[65%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg">
+<span class="text-[10px] font-label text-on-surface-variant block mb-1">Security Score</span>
+<div class="flex items-end gap-2">
+<span class="text-xl font-headline font-bold text-primary">99.9</span>
+<span class="text-[10px] font-mono text-on-surface-variant mb-1">%</span>
+</div>
+<div class="mt-2 h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[99%]"></div>
+</div>
+</div>
+</div>
+<!-- Real-time Logs -->
+<div class="bg-black/40 p-4 font-mono text-[10px] leading-relaxed max-h-32 overflow-y-auto border-t border-outline-variant/5">
+<div class="text-primary mb-1">&gt; VAULT_MONITOR: ATTEMPTING_SYNC...</div>
+<div class="text-on-surface-variant mb-1">&gt; PACKET_RCV: [SWAP_INTENT_0x83A]</div>
+<div class="text-on-surface-variant mb-1">&gt; DECRYPTING: [DGLD_VAULT_DEPOSIT]</div>
+<div class="text-tertiary mb-1">&gt; GAS_WARP: SPIKE_DETECTED (+12%)</div>
+<div class="text-primary mb-1">&gt; GUARDIAN: STATE_VERIFIED_SCROLL</div>
+<div class="text-on-surface-variant">&gt; LISTENING_ON_MEMPOOL...</div>
+</div>
+</section>
+<!-- Swap List Section -->
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline font-bold text-lg">Active Swaps</h3>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-sm bg-surface-container p-1 rounded cursor-pointer hover:bg-surface-container-highest transition-colors">filter_list</span>
+<span class="material-symbols-outlined text-sm bg-surface-container p-1 rounded cursor-pointer hover:bg-surface-container-highest transition-colors">refresh</span>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Swap Card 1 -->
+<div class="bg-surface-container p-5 rounded-xl border-l-2 border-primary group hover:bg-surface-container-high transition-all active:scale-[0.98]">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img alt="Swap Icon" class="w-full h-full object-cover grayscale brightness-125" data-alt="close-up of a digital gold coin with intricate geometric patterns glowing neon green against dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvXoyU7URJrwn36BRcmZ1Tsmy_0g-GhDiLxDv1-3R4FyXOqX4Gx_KzHnZaSza3CJsmWor-TndMJXcwopJU-_k6oE8JfQVeti__0v6RI_zBubLjeuod5_Q3WTApZuK1g8MWA5WLoQyVd7UKNVuBMIGVenzYwrT3mm1fbzhgcwg6OSSjbwmEZyZHGC01iMXORIUiLTFk3hnwoo-EjcWjXuoQTQYtO_aCBkW5X7haIIlP4svFyLEi7sKNFnG_s9diEVcCpSD6mGsWnbM"/>
+</div>
+<div>
+<p class="text-[10px] font-mono text-on-surface-variant">OFFERING</p>
+<p class="font-headline font-bold text-primary">100 DGLD (Gold)</p>
+</div>
+</div>
+<span class="text-[10px] font-mono text-on-surface-variant">59m ago</span>
+</div>
+<div class="flex items-center gap-4 mb-5">
+<div class="flex-1 h-[1px] bg-outline-variant/20"></div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">swap_horiz</span>
+<div class="flex-1 h-[1px] bg-outline-variant/20"></div>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-[10px] font-mono text-on-surface-variant">WANTS</p>
+<p class="font-headline font-bold text-on-surface">1 NFT Sword</p>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 hover:shadow-[0_0_15px_rgba(159,255,136,0.4)] transition-all">
+                        View Tx
+                        <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Swap Card 2 -->
+<div class="bg-surface-container p-5 rounded-xl border-l-2 border-primary/20 group hover:bg-surface-container-high transition-all active:scale-[0.98]">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img alt="Swap Icon" class="w-full h-full object-cover grayscale contrast-125" data-alt="abstract 3d visualization of glowing digital crystal shards in deep space with vibrant green accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRHxorpSHfQEiIBixaTEvdUl_AM2Zx0YpVyQ9IXknOOkwKheC7hx_hNGq1lr-DRL1wXbV4Pp3sIbAgJ568v9Iccubbievae4dUVHjT2kDzrY6G7HWODZNl7mjlBwQdNUbevVYP-STjB30niimi8Zhrug0UU6YSYClK_Dtf26SCFOKM4RcexmDuGdFxCdjEe-H0iorsiPrPxrEwL7Y_mm1iaNHLITVmNcdYYtCvrU1FjHqQMGO9EiUyHjAzHYvselwoHaeasSj01uY"/>
+</div>
+<div>
+<p class="text-[10px] font-mono text-on-surface-variant">OFFERING</p>
+<p class="font-headline font-bold text-primary">4500 D-EXP</p>
+</div>
+</div>
+<span class="text-[10px] font-mono text-on-surface-variant">2h ago</span>
+</div>
+<div class="flex items-center gap-4 mb-5">
+<div class="flex-1 h-[1px] bg-outline-variant/20"></div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">swap_horiz</span>
+<div class="flex-1 h-[1px] bg-outline-variant/20"></div>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-[10px] font-mono text-on-surface-variant">WANTS</p>
+<p class="font-headline font-bold text-on-surface">Common Land #42</p>
+</div>
+<button class="bg-surface-container-highest text-on-surface px-4 py-2 rounded-xl text-xs font-bold border border-white/5 hover:border-primary/50 transition-all">
+                        View Tx
+                    </button>
+</div>
+</div>
+<!-- Swap Card 3 -->
+<div class="bg-surface-container p-5 rounded-xl border-l-2 border-tertiary group hover:bg-surface-container-high transition-all active:scale-[0.98]">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img alt="Swap Icon" class="w-full h-full object-cover grayscale" data-alt="digital representation of a dark glowing gemstone with red internal energy pulses on a black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmDtp37z_u4R2UhhoTxxG_ne6eeer4ZMjkNl4ZJkH5wEgW48RbMoj2m7xZolShKtLLG7_aPGXBuaxGqbUgyZSF78TWmEM1kXm5ncK23uOwWTvdzhzj9tTa_AJRTal97fyUlFZ7eoa8kqEHNqoalY3w3SMv3VKmE_CFKb-OrZMQ3t3DVUE14k9Pl92qG1BsHBgAuYTigozwYkIFOEQfQwT3KKjHFm7kFkIkpm_8C1Q5JqShAY5UgXp_gis8NAVAbc6uRBkk9Q5gtLI"/>
+</div>
+<div>
+<p class="text-[10px] font-mono text-tertiary">URGENT</p>
+<p class="font-headline font-bold text-primary">Legendary Bow</p>
+</div>
+</div>
+<span class="text-[10px] font-mono text-on-surface-variant">4h ago</span>
+</div>
+<div class="flex items-center gap-4 mb-5">
+<div class="flex-1 h-[1px] bg-outline-variant/20"></div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">swap_horiz</span>
+<div class="flex-1 h-[1px] bg-outline-variant/20"></div>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-[10px] font-mono text-on-surface-variant">WANTS</p>
+<p class="font-headline font-bold text-on-surface">5.0 ETH</p>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+                        View Tx
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-[#0e0e0e] px-4 border-t border-[#9fff88]/15 shadow-[0_-4px_24px_rgba(0,0,0,0.8)]">
+<div class="flex flex-col items-center justify-center text-[#ababab] opacity-60 hover:text-[#9fff88] transition-all active:translate-y-1">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#9fff88] drop-shadow-[0_0_5px_rgba(159,255,136,0.6)] active:translate-y-1 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">swap_horiz</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest mt-1">Market</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#ababab] opacity-60 hover:text-[#9fff88] transition-all active:translate-y-1">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest mt-1">Analytics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#ababab] opacity-60 hover:text-[#9fff88] transition-all active:translate-y-1">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest mt-1">Portfolio</span>
+</div>
+</nav>
+<!-- Contextual FAB -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(159,255,136,0.5)] active:scale-90 transition-all z-40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

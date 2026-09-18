@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>D-MEX | Arbiter Terminal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#d2d0cf",
+                        "on-primary-fixed": "#014500",
+                        "tertiary-fixed": "#ff9385",
+                        "inverse-on-surface": "#555555",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary-fixed": "#3a0001",
+                        "tertiary": "#ff7162",
+                        "surface-tint": "#9fff88",
+                        "outline-variant": "#484848",
+                        "on-error": "#450900",
+                        "on-surface-variant": "#ababab",
+                        "on-tertiary": "#4a0001",
+                        "surface-container-lowest": "#000000",
+                        "primary": "#9fff88",
+                        "on-secondary-fixed": "#403f3f",
+                        "inverse-primary": "#026f00",
+                        "on-background": "#ffffff",
+                        "secondary-container": "#474646",
+                        "tertiary-fixed-dim": "#ff7c6c",
+                        "on-primary-fixed-variant": "#026500",
+                        "primary-container": "#00fd00",
+                        "surface-container-high": "#1f1f1f",
+                        "background": "#0e0e0e",
+                        "surface-bright": "#2c2c2c",
+                        "error-dim": "#d53d18",
+                        "on-primary-container": "#015a00",
+                        "outline": "#757575",
+                        "error": "#ff7351",
+                        "secondary": "#e5e2e1",
+                        "primary-dim": "#01ed00",
+                        "surface-container": "#191919",
+                        "on-secondary": "#525151",
+                        "surface": "#0e0e0e",
+                        "on-surface": "#ffffff",
+                        "surface-container-highest": "#262626",
+                        "on-secondary-fixed-variant": "#5c5b5b",
+                        "on-tertiary-container": "#000000",
+                        "secondary-fixed-dim": "#d7d4d3",
+                        "surface-variant": "#262626",
+                        "surface-container-low": "#131313",
+                        "inverse-surface": "#f9f9f9",
+                        "secondary-dim": "#d7d4d3",
+                        "on-primary": "#026400",
+                        "on-tertiary-fixed-variant": "#7a0004",
+                        "primary-fixed-dim": "#01ed00",
+                        "tertiary-container": "#f9362c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(25, 25, 25, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .glow-primary {
+            box-shadow: 0 0 20px rgba(159, 255, 136, 0.15);
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0e0e0e; }
+        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 10px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col overflow-x-hidden">
+<!-- Top Navigation Shell -->
+<header class="bg-[#0e0e0e] text-[#9fff88] flex justify-between items-center px-6 h-16 w-full fixed top-0 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#9fff88]">security</span>
+<h1 class="text-2xl font-black font-headline tracking-tight text-[#9fff88] drop-shadow-[0_0_8px_rgba(159,255,136,0.4)]">D-MEX</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-[#262626] transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-20 pb-28 px-4 max-w-lg mx-auto w-full flex flex-col gap-6">
+<!-- Section: Guardian AI Settings Modal (Integrated as an overlay view) -->
+<section class="glass-panel border-l-2 border-primary/30 p-6 rounded-xl flex flex-col gap-6 glow-primary">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-headline text-xl font-bold tracking-tight text-on-surface uppercase">Guardian AI Settings</h2>
+<p class="text-xs font-mono text-on-surface-variant mt-1 opacity-70">&gt; SYSTEM_CORE_V4.2_ACTIVE</p>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<!-- Toggle Controls -->
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg group transition-all">
+<label class="flex flex-col">
+<span class="text-sm font-semibold tracking-wide uppercase">Auto-Reject High Risk</span>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-tighter opacity-60">Threshold: &gt;50 Units</span>
+</label>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg">
+<label class="flex flex-col">
+<span class="text-sm font-semibold tracking-wide uppercase">Psychology &amp; Defaults Mode</span>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-tighter opacity-60">Agentic user-intent mapping</span>
+</label>
+<div class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+</div>
+<!-- Slider Control -->
+<div class="space-y-3 pt-2">
+<div class="flex justify-between items-center px-1">
+<span class="text-[11px] font-mono text-on-surface uppercase tracking-widest">Fair-Value Slippage</span>
+<span class="text-primary font-mono text-xs">0.50%</span>
+</div>
+<div class="relative h-6 flex items-center">
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="500" min="0" type="range" value="50"/>
+</div>
+<div class="flex justify-between text-[8px] text-on-surface-variant font-mono uppercase opacity-50 px-1">
+<span>Low Tolerance</span>
+<span>Aggressive</span>
+</div>
+</div>
+</section>
+<!-- Section: User Portfolio Card -->
+<section class="bg-surface-container p-6 rounded-xl flex flex-col gap-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-[80px]">account_balance_wallet</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-mono text-primary uppercase tracking-widest">Global Portfolio Interface</span>
+<h2 class="font-headline text-2xl font-black text-on-surface">Arbiter Identity</h2>
+</div>
+<!-- Key Stats Bento -->
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-container-low p-4 rounded-lg flex flex-col gap-1 border-b-2 border-primary">
+<span class="text-[10px] font-mono text-on-surface-variant uppercase">Reputation</span>
+<div class="flex items-center gap-2">
+<span class="text-2xl font-bold font-headline text-primary">98%</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg flex flex-col gap-1">
+<span class="text-[10px] font-mono text-on-surface-variant uppercase">Total Swaps</span>
+<span class="text-2xl font-bold font-headline text-on-surface">12</span>
+</div>
+</div>
+<!-- Sync State -->
+<div class="bg-surface-container-highest/50 p-4 rounded-lg border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-xs font-mono text-on-surface">Syncing with Scroll Sepolia...</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed font-body">
+                    Your connected game assets will appear here. Synchronizing encrypted meta-vaults with the Arbiter network.
+                </p>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary font-headline font-bold text-sm tracking-widest uppercase rounded-xl flex items-center justify-center gap-2 hover:bg-primary-dim transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">sync</span>
+                Initialize Refresh
+            </button>
+</section>
+<!-- Section: Live Telemetry Logs -->
+<section class="flex flex-col gap-2 opacity-80">
+<h3 class="text-[10px] font-mono text-on-surface-variant uppercase tracking-[0.2em] px-2">Terminal Output</h3>
+<div class="bg-surface-container-lowest p-3 rounded-lg font-mono text-[10px] leading-tight text-on-surface-variant/70 border border-outline-variant/10">
+<div class="mb-1"><span class="text-primary">&gt;</span> CONNECTION_ESTABLISHED: 0x9f...88</div>
+<div class="mb-1"><span class="text-primary">&gt;</span> FETCHING_ASSET_METADATA... OK</div>
+<div class="mb-1"><span class="text-tertiary">&gt;</span> ERROR_SUPPRESSION_ACTIVE</div>
+<div class="mb-1 animate-pulse"><span class="text-primary">&gt;</span> LISTENING_FOR_EVENTS_ON_SCROLL_L2_</div>
+</div>
+</section>
+</main>
+<!-- Bottom Toast: Guardian AI Reasoning -->
+<div class="fixed bottom-24 left-4 right-4 z-[60] glass-panel p-4 rounded-xl shadow-2xl border-t border-primary/20 flex flex-col gap-3">
+<div class="flex gap-3">
+<div class="p-2 bg-primary/10 rounded-lg shrink-0">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-mono text-primary uppercase font-bold tracking-widest">Guardian AI Reasoning</span>
+<p class="text-xs text-on-surface font-body leading-tight mt-1">
+                    Unusual slippage detected on L2 bridge. Recommend 48h lock or secondary verification. Transaction safety: <span class="text-tertiary">LOW</span>
+</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 bg-surface-container-highest text-on-surface font-headline font-bold text-[10px] uppercase tracking-widest rounded-lg hover:bg-surface-bright transition-colors">Dismiss</button>
+<button class="flex-1 py-2 bg-tertiary text-on-tertiary font-headline font-bold text-[10px] uppercase tracking-widest rounded-lg hover:bg-tertiary-dim transition-colors">Override</button>
+</div>
+</div>
+<!-- Navigation Shell: BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-[#0e0e0e] px-4 border-t border-[#9fff88]/15 shadow-[0_-4px_24px_rgba(0,0,0,0.8)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-[#ababab] opacity-60 hover:text-[#9fff88] transition-all active:translate-y-1" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#ababab] opacity-60 hover:text-[#9fff88] transition-all active:translate-y-1" href="#">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#ababab] opacity-60 hover:text-[#9fff88] transition-all active:translate-y-1" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest mt-1">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#9fff88] drop-shadow-[0_0_5px_rgba(159,255,136,0.6)] active:translate-y-1 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest mt-1">Portfolio</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,184 @@
+{
+  "$schema": "https://eips.ethereum.org/assets/erc-7730/erc7730-v1.schema.json",
+  "context": {
+    "contract": {
+      "abi": "DMEXVault",
+      "deployments": [
+        {
+          "chainId": 534351,
+          "address": "0xbD8c5247504ecA82Dbb6A7C78bE5B55131402dF8"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "D-MEX Protocol",
+    "info": {
+      "url": "https://dmex.game",
+      "legalName": "D-MEX Decentralized Multi-Asset Exchange",
+      "lastUpdate": "2026-05-13T00:00:00Z"
+    }
+  },
+  "display": {
+    "formats": {
+      "commitSwap(bytes32,address,uint256,bytes32,(uint8,address,uint256,uint256)[],(uint8,address,uint256,uint256)[])": {
+        "intent": "Lock Your Assets Into a Swap",
+        "fields": [
+          {
+            "path": "swapId",
+            "label": "Swap ID",
+            "format": "raw"
+          },
+          {
+            "path": "counterparty",
+            "label": "Trading Partner",
+            "format": "addressName"
+          },
+          {
+            "path": "expiry",
+            "label": "Expires At",
+            "format": "date"
+          },
+          {
+            "path": "secretHash",
+            "label": "HTLC Secret Hash",
+            "format": "raw"
+          },
+          {
+            "path": "myAssets",
+            "label": "Assets You Are Sending",
+            "format": "raw"
+          },
+          {
+            "path": "wantedAssets",
+            "label": "Assets You Will Receive",
+            "format": "raw"
+          }
+        ],
+        "required": ["swapId", "counterparty", "expiry"],
+        "screens": {
+          "ledger": {
+            "flow": [
+              { "title": "Swap Action", "content": "Lock Assets" },
+              { "title": "Partner", "content": "$.counterparty" },
+              { "title": "Expires", "content": "$.expiry" },
+              { "title": "Swap ID", "content": "$.swapId" }
+            ]
+          }
+        }
+      },
+      "executeSwap(bytes32,string,(uint8,uint256,bool),bytes)": {
+        "intent": "Execute Swap — Receive Your Assets",
+        "fields": [
+          {
+            "path": "swapId",
+            "label": "Swap ID",
+            "format": "raw"
+          },
+          {
+            "path": "secret",
+            "label": "HTLC Secret",
+            "format": "raw"
+          },
+          {
+            "path": "payload.riskScore",
+            "label": "AI Risk Score",
+            "format": "raw"
+          },
+          {
+            "path": "payload.dynamicTaxBps",
+            "label": "Exit Tax (Basis Points)",
+            "format": "raw"
+          },
+          {
+            "path": "payload.isSpiralHalt",
+            "label": "Circuit Breaker Active",
+            "format": "raw"
+          },
+          {
+            "path": "aiSignature",
+            "label": "Guardian Arbiter Signature",
+            "format": "raw"
+          }
+        ],
+        "required": ["swapId", "secret"],
+        "screens": {
+          "ledger": {
+            "flow": [
+              { "title": "Swap Action", "content": "Execute & Receive" },
+              { "title": "Swap ID", "content": "$.swapId" },
+              { "title": "Risk Score", "content": "$.payload.riskScore" },
+              { "title": "Exit Tax", "content": "$.payload.dynamicTaxBps bps" }
+            ]
+          }
+        }
+      },
+      "refundSwap(bytes32)": {
+        "intent": "Reclaim Your Locked Assets",
+        "fields": [
+          {
+            "path": "swapId",
+            "label": "Swap ID to Refund",
+            "format": "raw"
+          }
+        ],
+        "required": ["swapId"],
+        "screens": {
+          "ledger": {
+            "flow": [
+              { "title": "Swap Action", "content": "Refund / Cancel" },
+              { "title": "Swap ID", "content": "$.swapId" }
+            ]
+          }
+        }
+      },
+      "setPriceFeed(address,address)": {
+        "intent": "⚠️ ADMIN: Set Chainlink Price Feed",
+        "fields": [
+          { "path": "token", "label": "Token Address", "format": "addressName" },
+          { "path": "feed", "label": "Chainlink Feed Address", "format": "addressName" }
+        ],
+        "required": ["token", "feed"],
+        "screens": {
+          "ledger": {
+            "flow": [
+              { "title": "⚠️ Admin Action", "content": "Set Price Feed" },
+              { "title": "Token", "content": "$.token" },
+              { "title": "Feed", "content": "$.feed" }
+            ]
+          }
+        }
+      },
+      "setGuardianSigner(address)": {
+        "intent": "🚨 CRITICAL ADMIN: Change Guardian Signer",
+        "fields": [
+          { "path": "_guardian", "label": "New Guardian Address", "format": "addressName" }
+        ],
+        "required": ["_guardian"],
+        "screens": {
+          "ledger": {
+            "flow": [
+              { "title": "🚨 CRITICAL", "content": "Change Guardian" },
+              { "title": "New Signer", "content": "$._guardian" }
+            ]
+          }
+        }
+      },
+      "setTreasury(address)": {
+        "intent": "🚨 CRITICAL ADMIN: Change Treasury Address",
+        "fields": [
+          { "path": "_treasury", "label": "New Treasury Address", "format": "addressName" }
+        ],
+        "required": ["_treasury"],
+        "screens": {
+          "ledger": {
+            "flow": [
+              { "title": "🚨 CRITICAL", "content": "Change Treasury" },
+              { "title": "New Address", "content": "$._treasury" }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

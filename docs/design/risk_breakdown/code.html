@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>D-MEX | Attack Node Breakdown</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#d2d0cf",
+                    "on-primary-fixed": "#014500",
+                    "tertiary-fixed": "#ff9385",
+                    "inverse-on-surface": "#555555",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-tertiary-fixed": "#3a0001",
+                    "tertiary": "#ff7162",
+                    "surface-tint": "#9fff88",
+                    "outline-variant": "#484848",
+                    "on-error": "#450900",
+                    "on-surface-variant": "#ababab",
+                    "on-tertiary": "#4a0001",
+                    "surface-container-lowest": "#000000",
+                    "primary": "#9fff88",
+                    "on-secondary-fixed": "#403f3f",
+                    "inverse-primary": "#026f00",
+                    "on-background": "#ffffff",
+                    "secondary-container": "#474646",
+                    "tertiary-fixed-dim": "#ff7c6c",
+                    "on-primary-fixed-variant": "#026500",
+                    "primary-container": "#00fd00",
+                    "surface-container-high": "#1f1f1f",
+                    "background": "#0e0e0e",
+                    "surface-bright": "#2c2c2c",
+                    "error-dim": "#d53d18",
+                    "on-primary-container": "#015a00",
+                    "outline": "#757575",
+                    "error": "#ff7351",
+                    "secondary": "#e5e2e1",
+                    "primary-dim": "#01ed00",
+                    "surface-container": "#191919",
+                    "on-secondary": "#525151",
+                    "surface": "#0e0e0e",
+                    "on-surface": "#ffffff",
+                    "surface-container-highest": "#262626",
+                    "on-secondary-fixed-variant": "#5c5b5b",
+                    "on-tertiary-container": "#000000",
+                    "secondary-fixed-dim": "#d7d4d3",
+                    "surface-variant": "#262626",
+                    "surface-container-low": "#131313",
+                    "inverse-surface": "#f9f9f9",
+                    "secondary-dim": "#d7d4d3",
+                    "on-primary": "#026400",
+                    "on-tertiary-fixed-variant": "#7a0004",
+                    "primary-fixed-dim": "#01ed00",
+                    "tertiary-container": "#f9362c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .mono { font-family: 'Courier New', Courier, monospace; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0e0e0e; }
+        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 10px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-6 h-16 w-full bg-[#0e0e0e] fixed top-0 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#9fff88]" data-icon="security">security</span>
+<span class="text-2xl font-black text-[#9fff88] drop-shadow-[0_0_8px_rgba(159,255,136,0.4)] font-['Space_Grotesk'] tracking-tight">D-MEX</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#262626] transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[#ababab]" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="pt-20 pb-24 px-4 min-h-screen">
+<!-- Headline Section -->
+<div class="mb-8 mt-4">
+<h1 class="font-headline font-bold text-2xl tracking-tight leading-tight">
+                Latest Swap - <br/>
+<span class="text-primary drop-shadow-[0_0_10px_rgba(159,255,136,0.3)]">Attack Node Breakdown</span>
+</h1>
+<p class="text-on-surface-variant text-sm mt-2 font-medium">Real-time risk telemetry for Arbiter Node 74-X</p>
+</div>
+<!-- Risk Evaluation Cards (Bento Grid) -->
+<div class="grid grid-cols-2 gap-3 mb-8">
+<!-- L1 Value Drain -->
+<div class="bg-surface-container rounded-xl p-4 flex flex-col justify-between border-l-2 border-primary/40 h-40">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="shield">shield</span>
+<span class="mono text-[10px] text-on-surface-variant">W: 35%</span>
+</div>
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">L1 Value Drain</div>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-headline font-bold text-primary">07</span>
+<span class="text-[10px] text-on-surface-variant">/ 100</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 7%"></div>
+</div>
+</div>
+<!-- L2 Reentrancy -->
+<div class="bg-surface-container rounded-xl p-4 flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-blue-400 text-xl" data-icon="lock">lock</span>
+<span class="mono text-[10px] text-on-surface-variant">W: 20%</span>
+</div>
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">L2 Reentrancy</div>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-headline font-bold text-on-surface">02</span>
+<span class="text-[10px] text-on-surface-variant">/ 100</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-blue-400 h-full" style="width: 2%"></div>
+</div>
+</div>
+<!-- L3 Metadata Fraud -->
+<div class="bg-surface-container rounded-xl p-4 flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-purple-400 text-xl" data-icon="description">description</span>
+<span class="mono text-[10px] text-on-surface-variant">W: 20%</span>
+</div>
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">L3 Metadata Fraud</div>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-headline font-bold text-on-surface">05</span>
+<span class="text-[10px] text-on-surface-variant">/ 100</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-purple-400 h-full" style="width: 5%"></div>
+</div>
+</div>
+<!-- A3 Sybil Pumping -->
+<div class="bg-surface-container rounded-xl p-4 flex flex-col justify-between border-l-2 border-tertiary/40 h-40">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-tertiary text-xl" data-icon="warning">warning</span>
+<span class="mono text-[10px] text-on-surface-variant">W: 25%</span>
+</div>
+<div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">A3 Sybil Pumping</div>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-headline font-bold text-tertiary">23</span>
+<span class="text-[10px] text-on-surface-variant">/ 100</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full" style="width: 23%"></div>
+</div>
+</div>
+</div>
+<!-- Kinetic Depth - Evaluation History -->
+<div class="bg-surface-container rounded-2xl overflow-hidden mb-6">
+<div class="px-5 py-4 flex justify-between items-center border-b border-white/5">
+<h3 class="font-headline font-bold text-sm tracking-wide">EVALUATION HISTORY</h3>
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="history">history</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">
+<th class="px-5 py-3">Timestamp</th>
+<th class="px-5 py-3">Score</th>
+<th class="px-5 py-3">Risk</th>
+<th class="px-5 py-3">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-5 py-4">
+<div class="text-xs font-semibold">14:02:21</div>
+<div class="mono text-[9px] opacity-50">#SW-2901</div>
+</td>
+<td class="px-5 py-4">
+<div class="text-sm font-bold text-primary">09</div>
+</td>
+<td class="px-5 py-4">
+<span class="text-[9px] px-1.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 uppercase font-bold tracking-tighter">Low</span>
+</td>
+<td class="px-5 py-4">
+<div class="flex items-center gap-1 text-[10px] font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="check_circle">check_circle</span>
+                                    Approve
+                                </div>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-5 py-4">
+<div class="text-xs font-semibold">13:58:45</div>
+<div class="mono text-[9px] opacity-50">#SW-2895</div>
+</td>
+<td class="px-5 py-4">
+<div class="text-sm font-bold text-tertiary">26</div>
+</td>
+<td class="px-5 py-4">
+<span class="text-[9px] px-1.5 py-0.5 rounded bg-tertiary/10 text-tertiary border border-tertiary/20 uppercase font-bold tracking-tighter">Medium</span>
+</td>
+<td class="px-5 py-4">
+<div class="flex items-center gap-1 text-[10px] font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="check_circle">check_circle</span>
+                                    Approve
+                                </div>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-5 py-4">
+<div class="text-xs font-semibold">13:42:10</div>
+<div class="mono text-[9px] opacity-50">#SW-2882</div>
+</td>
+<td class="px-5 py-4">
+<div class="text-sm font-bold text-primary">04</div>
+</td>
+<td class="px-5 py-4">
+<span class="text-[9px] px-1.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 uppercase font-bold tracking-tighter">Low</span>
+</td>
+<td class="px-5 py-4">
+<div class="flex items-center gap-1 text-[10px] font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="check_circle">check_circle</span>
+                                    Approve
+                                </div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Tactical Feed / Live Log -->
+<div class="bg-surface-container-highest rounded-xl p-4 border-l-2 border-on-surface-variant/20">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="mono text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Live Node Telemetry</span>
+</div>
+<div class="space-y-1 mono text-[10px] leading-relaxed">
+<div class="text-on-surface-variant/70">&gt; Initializing heuristic pass...</div>
+<div class="text-primary">&gt; Entropy check: VALID (0.0032)</div>
+<div class="text-on-surface-variant/70">&gt; Monitoring L1 Liquidity Pools...</div>
+<div class="text-on-surface-variant/70">&gt; Comparing metadata hash #x92F...</div>
+<div class="text-tertiary">&gt; WARN: Sybil cluster detected (Node 44)</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-[#0e0e0e] px-4 border-t border-[#9fff88]/15 shadow-[0_-4px_24px_rgba(0,0,0,0.8)]">
+<a class="flex flex-col items-center justify-center text-[#ababab] opacity-60 hover:text-[#9fff88] transition-all active:translate-y-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#ababab] opacity-60 hover:text-[#9fff88] transition-all active:translate-y-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#9fff88] drop-shadow-[0_0_5px_rgba(159,255,136,0.6)] hover:text-[#9fff88] transition-all active:translate-y-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest mt-1">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#ababab] opacity-60 hover:text-[#9fff88] transition-all active:translate-y-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest mt-1">Portfolio</span>
+</a>
+</nav>
+</body></html>

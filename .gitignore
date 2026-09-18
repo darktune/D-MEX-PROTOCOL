@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+lib/
+
+# Build artifacts & caches
+out/
+cache/
+broadcast/
+
+# Environment & Sensitive Credentials (NEVER COMMIT)
+.env
+.env.*
+*.env
+guardian/.env
+guardian/ledger.json
+
+# Logs & temporary runtimes
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+deploy_log.txt
+
+# IDE & Editor
+.vscode/
+.idea/
+
+# Media & Recordings
+*.webp
+
+# Large PDF papers (cited via arXiv URL)
+2508.01242v2.pdf
+
+# OS generated
+Thumbs.db
+.DS_Store

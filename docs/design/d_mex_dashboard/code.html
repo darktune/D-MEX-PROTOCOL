@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>D-MEX | GameFi Barter Board</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#d2d0cf",
+                        "on-primary-fixed": "#014500",
+                        "tertiary-fixed": "#ff9385",
+                        "inverse-on-surface": "#555555",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary-fixed": "#3a0001",
+                        "tertiary": "#ff7162",
+                        "surface-tint": "#9fff88",
+                        "outline-variant": "#484848",
+                        "on-error": "#450900",
+                        "on-surface-variant": "#ababab",
+                        "on-tertiary": "#4a0001",
+                        "surface-container-lowest": "#000000",
+                        "primary": "#9fff88",
+                        "on-secondary-fixed": "#403f3f",
+                        "inverse-primary": "#026f00",
+                        "on-background": "#ffffff",
+                        "secondary-container": "#474646",
+                        "tertiary-fixed-dim": "#ff7c6c",
+                        "on-primary-fixed-variant": "#026500",
+                        "primary-container": "#00fd00",
+                        "surface-container-high": "#1f1f1f",
+                        "background": "#0e0e0e",
+                        "surface-bright": "#2c2c2c",
+                        "error-dim": "#d53d18",
+                        "on-primary-container": "#015a00",
+                        "outline": "#757575",
+                        "error": "#ff7351",
+                        "secondary": "#e5e2e1",
+                        "primary-dim": "#01ed00",
+                        "surface-container": "#191919",
+                        "on-secondary": "#525151",
+                        "surface": "#0e0e0e",
+                        "on-surface": "#ffffff",
+                        "surface-container-highest": "#262626",
+                        "on-secondary-fixed-variant": "#5c5b5b",
+                        "on-tertiary-container": "#000000",
+                        "secondary-fixed-dim": "#d7d4d3",
+                        "surface-variant": "#262626",
+                        "surface-container-low": "#131313",
+                        "inverse-surface": "#f9f9f9",
+                        "secondary-dim": "#d7d4d3",
+                        "on-primary": "#026400",
+                        "on-tertiary-fixed-variant": "#7a0004",
+                        "primary-fixed-dim": "#01ed00",
+                        "tertiary-container": "#f9362c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(25, 25, 25, 0.6);
+            backdrop-filter: blur(12px);
+        }
+        .neon-glow-primary {
+            filter: drop-shadow(0 0 8px rgba(159, 255, 136, 0.4));
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-[#0e0e0e] flex justify-between items-center px-6 h-16 w-full fixed top-0 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#9fff88]" data-icon="security">security</span>
+<h1 class="text-2xl font-black text-[#9fff88] drop-shadow-[0_0_8px_rgba(159,255,136,0.4)] font-['Space_Grotesk'] tracking-tight">D-MEX</h1>
+</div>
+<button class="hover:bg-[#262626] transition-colors active:scale-95 duration-150 p-2 rounded-full">
+<span class="material-symbols-outlined text-[#ababab]" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="pt-20 px-4 space-y-6 max-w-lg mx-auto">
+<!-- Dashboard Header -->
+<section>
+<p class="font-mono text-[10px] text-primary/60 tracking-[0.2em] uppercase mb-1">Terminal Status: Authorized</p>
+<h2 class="text-3xl font-headline font-bold leading-tight">GameFi Barter Board</h2>
+</section>
+<!-- High-Level Stats Bento -->
+<section class="grid grid-cols-2 gap-3">
+<div class="bg-surface-container p-4 rounded-xl space-y-1">
+<span class="text-on-surface-variant text-[10px] uppercase tracking-widest font-label font-semibold">Total Evaluations</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-bold">2</span>
+<span class="material-symbols-outlined text-primary text-xs" data-icon="arrow_upward">arrow_upward</span>
+</div>
+</div>
+<div class="bg-surface-container p-4 rounded-xl space-y-1 border-l-2 border-primary">
+<span class="text-on-surface-variant text-[10px] uppercase tracking-widest font-label font-semibold text-primary">Approved</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-bold">2</span>
+<span class="text-[10px] font-mono text-primary">100%</span>
+</div>
+</div>
+<div class="bg-surface-container p-4 rounded-xl space-y-1">
+<span class="text-on-surface-variant text-[10px] uppercase tracking-widest font-label font-semibold">Rejected</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-bold text-on-surface-variant/40">0</span>
+</div>
+</div>
+<div class="bg-surface-container p-4 rounded-xl space-y-1">
+<span class="text-on-surface-variant text-[10px] uppercase tracking-widest font-label font-semibold">Avg Risk Score</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-bold">18</span>
+<span class="text-[10px] font-mono text-primary">OPTIMAL</span>
+</div>
+</div>
+</section>
+<!-- Safety Gauge & Status -->
+<section class="bg-surface-container rounded-xl p-6 relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline font-bold text-xl">Protocol Safety Ratio</h3>
+<p class="text-on-surface-variant text-sm">Real-time liquidation resistance</p>
+</div>
+<div class="bg-primary/10 text-primary px-2 py-1 rounded text-[10px] font-black font-mono">STABLE</div>
+</div>
+<div class="flex flex-col items-center justify-center py-4">
+<div class="relative w-48 h-48">
+<!-- Gauge SVG -->
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#262626" stroke-width="8"></circle>
+<circle class="neon-glow-primary" cx="50" cy="50" fill="transparent" r="45" stroke="#9fff88" stroke-dasharray="283" stroke-dashoffset="0" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-black font-headline tracking-tighter">100%</span>
+<span class="text-[10px] text-primary font-bold tracking-widest uppercase">SAFE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Line Chart -->
+<section class="bg-surface-container-low rounded-xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold">Composite Risk Over Time</h3>
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="h-40 w-full relative">
+<!-- Simple Vector Chart -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 100">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#9fff88" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#9fff88" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,80 Q50,70 100,85 T200,60 T300,75 T400,20 L400,100 L0,100 Z" fill="url(#chartGradient)"></path>
+<path d="M0,80 Q50,70 100,85 T200,60 T300,75 T400,20" fill="transparent" stroke="#9fff88" stroke-width="3"></path>
+</svg>
+<div class="flex justify-between mt-2 text-[8px] font-mono text-on-surface-variant uppercase tracking-widest">
+<span>04:00</span>
+<span>08:00</span>
+<span>12:00</span>
+<span>16:00</span>
+<span>Current</span>
+</div>
+</div>
+</section>
+<!-- Arbiter Guardian Panel -->
+<section class="glass-panel border-t border-primary/20 rounded-t-3xl p-6 space-y-6">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<h3 class="font-headline font-bold tracking-tight uppercase text-sm">Arbiter Guardian V3.0</h3>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center bg-black/40 p-4 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="speed">speed</span>
+<span class="text-xs font-medium uppercase tracking-wider text-on-surface-variant">Network Velocity</span>
+</div>
+<span class="font-mono text-primary font-bold">1.4k TX/s</span>
+</div>
+<div class="flex justify-between items-center bg-black/40 p-4 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="waves">waves</span>
+<span class="text-xs font-medium uppercase tracking-wider text-on-surface-variant">Volatility Index</span>
+</div>
+<span class="font-mono text-tertiary font-bold">LOW (0.22)</span>
+</div>
+<div class="flex justify-between items-center bg-black/40 p-4 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_balance">account_balance</span>
+<span class="text-xs font-medium uppercase tracking-wider text-on-surface-variant">Current Exit Tax</span>
+</div>
+<span class="font-mono text-primary font-bold">0.05%</span>
+</div>
+</div>
+<!-- Live Logs -->
+<div class="bg-surface-container-lowest p-4 rounded-lg font-mono text-[9px] leading-relaxed border border-outline-variant/30">
+<p class="text-primary">&gt; System initialized. Arbiter core online.</p>
+<p class="text-on-surface-variant/60">&gt; Scanning mempool for arbitrage vectors...</p>
+<p class="text-on-surface-variant/60">&gt; Safety threshold verified: 100% stable.</p>
+<p class="text-tertiary">&gt; Alert: Minor liquidity slippage detected in Node-7.</p>
+<p class="text-primary">&gt; Self-correction sequence completed.</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-[#0e0e0e] px-4 border-t border-[#9fff88]/15 shadow-[0_-4px_24px_rgba(0,0,0,0.8)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-[#ababab] opacity-60 hover:text-[#9fff88] transition-all active:translate-y-1">
+<span class="material-symbols-outlined mb-1" data-icon="terminal">terminal</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest">Propose Intent</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#ababab] opacity-60 hover:text-[#9fff88] transition-all active:translate-y-1">
+<span class="material-symbols-outlined mb-1" data-icon="swap_horiz">swap_horiz</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest">Open Market</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#9fff88] drop-shadow-[0_0_5px_rgba(159,255,136,0.6)] hover:text-[#9fff88] transition-all active:translate-y-1">
+<span class="material-symbols-outlined mb-1" data-icon="monitoring" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest">Analytics</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#ababab] opacity-60 hover:text-[#9fff88] transition-all active:translate-y-1">
+<span class="material-symbols-outlined mb-1" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-widest">Portfolio</span>
+</button>
+</nav>
+</body></html>
