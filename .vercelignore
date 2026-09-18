@@ -1,0 +1,16 @@
+*.pdf
+contracts/
+test/
+script/
+scripts/
+docs/
+assets/
+lib/
+out/
+cache/
+broadcast/
+mobile/
+node_modules/
+ai_layer/
+guardian/
+.git/

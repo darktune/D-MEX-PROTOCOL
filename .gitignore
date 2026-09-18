@@ -34,3 +34,6 @@ deploy_log.txt
 # OS generated
 Thumbs.db
 .DS_Store
+
+.vercel
+.env*
