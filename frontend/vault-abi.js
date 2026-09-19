@@ -5,12 +5,12 @@
 
 const SCROLL_SEPOLIA_CHAIN_ID = 534351;
 
-// Multiple RPCs for reliability — public endpoints are often rate-limited
+// Multiple RPCs for reliability — drpc.org is currently active and responsive
 const SCROLL_SEPOLIA_RPCS = [
-    "https://sepolia-rpc.scroll.io",
-    "https://scroll-sepolia.chainstacklabs.com",
-    "https://rpc.ankr.com/scroll_sepolia_testnet",
-    "https://scroll-sepolia-rpc.publicnode.com"
+    "https://scroll-sepolia.drpc.org",
+    "https://scroll-sepolia.blockpi.network/v1/rpc/public",
+    "https://scroll-sepolia-rpc.publicnode.com",
+    "https://sepolia-rpc.scroll.io"
 ];
 const SCROLL_SEPOLIA_RPC = SCROLL_SEPOLIA_RPCS[0]; // default
 
@@ -24,7 +24,7 @@ const SCROLL_SEPOLIA_CHAIN_CONFIG = {
 
 // --- Deployed Contract Addresses ---
 const CONTRACTS = {
-    VAULT_PROXY:    "0xbD8c5247504ecA82Dbb6A7C78bE5B55131402dF8".toLowerCase(),
+    VAULT_PROXY:    "0x39b845162051b643f0E883ef3F3382a0164528f0".toLowerCase(),
     DGLD:           "0x789755ed4930b37372e9E838AdbF4280CDE7A576".toLowerCase(),
     NFT_SWORD:      "0xdd2C163C8E0005deF0B1e70c93dF708998Be9bce".toLowerCase(),
     COMMODITY:      "0xA62561F571c27c9c17D44fBCB6a931Ea55da594c".toLowerCase(),
