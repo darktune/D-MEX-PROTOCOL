@@ -5,12 +5,11 @@
 
 const SCROLL_SEPOLIA_CHAIN_ID = 534351;
 
-// Multiple RPCs for reliability — drpc.org is currently active and responsive
+// Multiple RPCs for reliability — publicnode and drpc are responsive
 const SCROLL_SEPOLIA_RPCS = [
-    "https://scroll-sepolia.drpc.org",
-    "https://scroll-sepolia.blockpi.network/v1/rpc/public",
     "https://scroll-sepolia-rpc.publicnode.com",
-    "https://sepolia-rpc.scroll.io"
+    "https://scroll-sepolia.drpc.org",
+    "https://scroll-sepolia.blockpi.network/v1/rpc/public"
 ];
 const SCROLL_SEPOLIA_RPC = SCROLL_SEPOLIA_RPCS[0]; // default
 
