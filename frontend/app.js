@@ -577,6 +577,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         const wallet = new ethers.Wallet(getOrCreateBurnerKey(), provider);
                         signer = wallet; userAddr = wallet.address;
                         addLog(`[WALLET] Direct RPC connected: ${shortAddr(userAddr)}`);
+                        addLog(`[WALLET] Full Address: ${userAddr}`);
                         addLog(`[RPC] ✓ Using ${rpcUrl.replace('https://','').slice(0,40)}`);
                         rpcConnected = true;
                         connected = true;
@@ -922,8 +923,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         
         if (userAddr) {
-            addrEl.textContent = `Connected: ${shortAddr(userAddr)}`;
+            addrEl.innerHTML = `Connected: <span id="copy-full-addr-btn" style="cursor: pointer; text-decoration: underline; font-family: monospace;" title="Click to copy full address">${shortAddr(userAddr)} 📋</span>`;
             addrEl.style.color = 'var(--spotify-green)';
+            const copyBtn = document.getElementById('copy-full-addr-btn');
+            if (copyBtn) {
+                copyBtn.onclick = () => {
+                    navigator.clipboard.writeText(userAddr);
+                    showToast('Full address copied: ' + userAddr, 'success');
+                };
+            }
         } else {
             addrEl.textContent = 'Connect wallet to view portfolio';
             addrEl.style.color = 'var(--text-secondary)';
