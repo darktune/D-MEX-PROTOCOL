@@ -1362,7 +1362,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     })
                 });
                 const evalData = await evalRes.json();
-                recordEvaluation(swapId, tx.hash, evalData.riskScore, evalData.decision, evalData.fairValue, evalData.severity);
+                recordEvaluation(swapId, txHash, evalData.riskScore, evalData.decision, evalData.fairValue, evalData.severity);
 
                 // Show psychology warnings if any
                 if (evalData.psychWarnings && evalData.psychWarnings.length > 0) {
@@ -1378,10 +1378,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             } catch (evalErr) {
                 // Fallback to mock if guardian is offline
                 const riskScore = Math.floor(Math.random() * 35);
-                recordEvaluation(swapId, tx.hash, riskScore, 'approve');
+                recordEvaluation(swapId, txHash, riskScore, 'approve');
                 addLog('[AI] Guardian offline — used mock evaluation');
             }
-            addMarketOrder(swapId, offerAsset, offerAmount, receiveAsset, receiveAmount, expiry, tx.hash);
+            addMarketOrder(swapId, offerAsset, offerAmount, receiveAsset, receiveAmount, expiry, txHash);
 
             await refreshBalances();
 
