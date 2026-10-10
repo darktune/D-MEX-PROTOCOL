@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dmex-guardian-v2.1';
+const CACHE_NAME = 'dmex-guardian-v3.0';
 const ASSETS = [
     './',
     './index.html',

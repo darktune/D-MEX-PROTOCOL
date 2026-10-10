@@ -150,10 +150,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             ws.onclose = () => {
                 if (wsPingInterval) { clearInterval(wsPingInterval); wsPingInterval = null; }
-                if (!wsDisconnectLogged) {
-                    addLog('[WS] Disconnected. Will retry automatically.');
-                    wsDisconnectLogged = true;
-                }
+                // Suppress disconnect log — Guardian runs offline in static deployment
                 // Exponential backoff: 5s → 10s → 20s → 30s (cap)
                 wsReconnectTimer = setTimeout(connectGuardianWS, wsReconnectDelay);
                 wsReconnectDelay = Math.min(wsReconnectDelay * 2, 30000);
@@ -605,11 +602,32 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 activeBtn.innerText = shortAddr(userAddr);
                 activeBtn.classList.remove('outlined'); activeBtn.classList.add('primary');
-                addLog(`[CHAIN] Scroll Sepolia (${SCROLL_SEPOLIA_CHAIN_ID})`);
-                showToast('Connected to Scroll Sepolia!');
+                addLog(`[CHAIN] D-MEX Testnet (zkEVM Layer 2)`);
+                showToast('Connected to D-MEX Testnet!');
+
+                // Auto-provision sandbox tokens for any new visitor (no faucet click needed)
+                const _sk = 'dmex_wallet_balances_' + userAddr.toLowerCase();
+                if (!localStorage.getItem(_sk)) {
+                    const _starter = { dgld: 1000.0, nft: 5, commodity: 100, eth: 0.05 };
+                    try { localStorage.setItem(_sk, JSON.stringify(_starter)); } catch(e){}
+                    addLog('[FAUCET] ✓ Welcome bonus: 1000 DGLD, 5 NFT Swords, 100 Commodities');
+                }
+
                 await refreshBalances();
                 updateWelcomeMessage();
                 fetchOrderHistory();
+
+                // Pre-seed the market order book with realistic demo orders
+                if (marketOrders.length === 0) {
+                    const demoOrders = [
+                        { swapId: '0xa1b2c3d4e5f6', offerKey: 'dgld', offerAmt: '250', receiveKey: 'sword', receiveAmt: '1', expiry: Math.floor(Date.now()/1000)+3600, txHash: '0xdemo1111aaaa', timestamp: Date.now() - 120000 },
+                        { swapId: '0xf1e2d3c4b5a6', offerKey: 'sword', offerAmt: '2', receiveKey: 'commodity', receiveAmt: '80', expiry: Math.floor(Date.now()/1000)+7200, txHash: '0xdemo2222bbbb', timestamp: Date.now() - 300000 },
+                        { swapId: '0xaabbccddeeff', offerKey: 'commodity', offerAmt: '150', receiveKey: 'dgld', receiveAmt: '420', expiry: Math.floor(Date.now()/1000)+1800, txHash: '0xdemo3333cccc', timestamp: Date.now() - 600000 },
+                        { swapId: '0x1122334455ff', offerKey: 'dgld', offerAmt: '500', receiveKey: 'commodity', receiveAmt: '200', expiry: Math.floor(Date.now()/1000)+5400, txHash: '0xdemo4444dddd', timestamp: Date.now() - 900000 },
+                    ];
+                    demoOrders.forEach(o => marketOrders.push(o));
+                    renderMarketOrders();
+                }
 
                 // Generate swap suggestions after connecting
                 generateSwapSuggestions();
