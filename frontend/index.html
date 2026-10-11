@@ -1023,66 +1023,37 @@
 
     <!-- ========== WALLET CONNECTION MODAL ========== -->
     <div class="modal-overlay" id="wallet-connect-modal">
-        <div class="modal-content glass-panel" style="width:600px; max-width:95%; padding: 0 !important; border-radius: 20px !important;">
+        <div class="modal-content glass-panel" style="width:540px; max-width:95%; padding: 0 !important; border-radius: 20px !important;">
             <button class="close-modal" id="close-wallet-modal" style="right:20px; top:20px; z-index:10;">✖</button>
             <div style="padding: 30px;">
-                <h2 style="font-size: 1.6rem; margin-bottom: 8px;">Connect Web3 Identity</h2>
-                <p style="color:var(--text-secondary); margin-bottom: 24px; font-size:0.9rem;">Select your preferred wallet architecture. D-MEX supports multiple security models.</p>
-                
+                <h2 style="font-size: 1.6rem; margin-bottom: 8px;">Connect to D-MEX</h2>
+                <p style="color:var(--text-secondary); margin-bottom: 24px; font-size:0.9rem;">Choose how you want to access the protocol.</p>
+
                 <div class="wallet-options">
-                    <!-- Smart Wallet -->
+                    <!-- D-MEX Sandbox Wallet (always works) -->
                     <div class="wallet-option-card recommended" id="btn-wallet-smart" data-wallet="smart" style="background:rgba(30,215,96,0.05); border:1px solid rgba(30,215,96,0.3); padding:20px; border-radius:12px; margin-bottom:12px; cursor:pointer; transition:all 0.2s;">
                         <div class="wallet-info">
                             <div style="display:flex; align-items:center; gap:10px;">
-                                <h3 style="color:#1ed760; margin:0; font-size:1.1rem;">D-MEX Embedded Smart Wallet</h3>
+                                <h3 style="color:#1ed760; margin:0; font-size:1.1rem;">D-MEX Sandbox Wallet</h3>
                                 <span style="font-size:0.6rem; background:rgba(30,215,96,0.2); color:#1ed760; padding:4px 8px; border-radius:4px; font-weight:800;">RECOMMENDED</span>
                             </div>
-                            <p style="font-size:0.8rem; color:var(--text-secondary); margin:6px 0 0 0;">ERC-4337 Account Abstraction (Powered by ZeroDev)</p>
+                            <p style="font-size:0.8rem; color:var(--text-secondary); margin:6px 0 0 0;">Instant burner wallet — no extensions, no gas needed</p>
                             <div class="wallet-pros-cons" style="margin-top:12px; font-size:0.75rem; color:#aaa; display:flex; gap:16px;">
-                                <span><span style="color:#1ed760;font-weight:bold;">✓</span> Gasless swaps (sponsored)</span>
-                                <span><span style="color:#1ed760;font-weight:bold;">✓</span> Social/Email Login</span>
-                                <span><span style="color:#e22134;font-weight:bold;">✕</span> Protocol-managed custody</span>
+                                <span><span style="color:#1ed760;font-weight:bold;">✓</span> Works instantly</span>
+                                <span><span style="color:#1ed760;font-weight:bold;">✓</span> No setup required</span>
+                                <span><span style="color:#1ed760;font-weight:bold;">✓</span> Free test assets included</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Browser Wallet -->
-                    <div class="wallet-option-card" id="btn-wallet-browser" data-wallet="browser" style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.1); padding:20px; border-radius:12px; margin-bottom:12px; cursor:pointer; transition:all 0.2s;">
+                    <!-- MetaMask -->
+                    <div class="wallet-option-card" id="btn-wallet-browser" data-wallet="browser" style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.1); padding:20px; border-radius:12px; cursor:pointer; transition:all 0.2s;">
                         <div class="wallet-info">
-                            <h3 style="margin:0; font-size:1.1rem; color:#fff;">Browser Extension</h3>
-                            <p style="font-size:0.8rem; color:var(--text-secondary); margin:6px 0 0 0;">MetaMask, Phantom, Coinbase Wallet</p>
+                            <h3 style="margin:0; font-size:1.1rem; color:#fff;">MetaMask</h3>
+                            <p style="font-size:0.8rem; color:var(--text-secondary); margin:6px 0 0 0;">Use your existing MetaMask wallet</p>
                             <div class="wallet-pros-cons" style="margin-top:12px; font-size:0.75rem; color:#aaa; display:flex; gap:16px;">
-                                <span><span style="color:#1ed760;font-weight:bold;">✓</span> Complete self-custody</span>
-                                <span><span style="color:#e22134;font-weight:bold;">✕</span> Requires gas (ETH)</span>
-                                <span><span style="color:#e22134;font-weight:bold;">✕</span> Manual network switching</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Hardware Wallet -->
-                    <div class="wallet-option-card" id="btn-wallet-hardware" data-wallet="hardware" style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.1); padding:20px; border-radius:12px; margin-bottom:12px; cursor:pointer; transition:all 0.2s;">
-                        <div class="wallet-info">
-                            <h3 style="margin:0; font-size:1.1rem; color:#fff;">Cold Storage Hardware</h3>
-                            <p style="font-size:0.8rem; color:var(--text-secondary); margin:6px 0 0 0;">Ledger, Trezor</p>
-                            <div class="wallet-pros-cons" style="margin-top:12px; font-size:0.75rem; color:#aaa; display:flex; gap:16px;">
-                                <span><span style="color:#1ed760;font-weight:bold;">✓</span> Maximum security</span>
-                                <span><span style="color:#e22134;font-weight:bold;">✕</span> Too slow for high-frequency GameFi arbitrage</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Direct RPC Connection (Dev/Test) -->
-                    <div class="wallet-option-card" id="btn-wallet-direct" data-wallet="direct" style="background:rgba(59,130,246,0.05); border:1px solid rgba(59,130,246,0.3); padding:20px; border-radius:12px; cursor:pointer; transition:all 0.2s;">
-                        <div class="wallet-info">
-                            <div style="display:flex; align-items:center; gap:10px;">
-                                <h3 style="color:#3b82f6; margin:0; font-size:1.1rem;">Direct RPC Connection</h3>
-                                <span style="font-size:0.6rem; background:rgba(59,130,246,0.2); color:#3b82f6; padding:4px 8px; border-radius:4px; font-weight:800;">DEV/TEST</span>
-                            </div>
-                            <p style="font-size:0.8rem; color:var(--text-secondary); margin:6px 0 0 0;">Bypass Browser Extension • Scroll Sepolia Live</p>
-                            <div class="wallet-pros-cons" style="margin-top:12px; font-size:0.75rem; color:#aaa; display:flex; gap:16px;">
-                                <span><span style="color:#1ed760;font-weight:bold;">✓</span> Instant connection</span>
-                                <span><span style="color:#1ed760;font-weight:bold;">✓</span> Reliable failover</span>
-                                <span><span style="color:#e22134;font-weight:bold;">✕</span> Insecure for mainnet use</span>
+                                <span><span style="color:#1ed760;font-weight:bold;">✓</span> Self-custody</span>
+                                <span><span style="color:#e22134;font-weight:bold;">✕</span> Requires MetaMask installed</span>
                             </div>
                         </div>
                     </div>
@@ -1247,8 +1218,8 @@
     <!-- Nav dots implemented separately -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js" crossorigin="anonymous"></script>
-    <script src="vault-abi.js?v=20261010"></script>
-    <script src="app.js?v=20261010"></script>
+    <script src="vault-abi.js?v=20261012"></script>
+    <script src="app.js?v=20261012"></script>
     <div class="floating-dot-nav" id="sticky-nav-dots">
         <div class="nav-dot active" data-target="create" data-tooltip="Propose Intent"></div>
         <div class="nav-dot" data-target="market" data-tooltip="Marketplace"></div>

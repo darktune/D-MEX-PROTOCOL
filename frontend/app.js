@@ -561,36 +561,40 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             }
 
-            // Direct RPC fallback or forced — with automatic failover
+            // Direct RPC / Sandbox — instant connect, no RPC needed
             if (!connected && forceDirect) {
-                addLog('[WALLET] Connecting via Direct RPC to Scroll Sepolia...');
-                let rpcConnected = false;
-                for (const rpcUrl of SCROLL_SEPOLIA_RPCS) {
-                    try {
-                        addLog(`[RPC] Trying ${rpcUrl.replace('https://','').slice(0,35)}...`);
-                        const testProvider = new ethers.JsonRpcProvider(rpcUrl, SCROLL_SEPOLIA_CHAIN_ID);
-                        await withTimeout(testProvider.getBlockNumber(), 30000, 'RPC health check');
-                        provider = testProvider;
-                        const wallet = new ethers.Wallet(getOrCreateBurnerKey(), provider);
-                        signer = wallet; userAddr = wallet.address;
-                        addLog(`[WALLET] Direct RPC connected: ${shortAddr(userAddr)}`);
-                        addLog(`[WALLET] Full Address: ${userAddr}`);
-                        addLog(`[RPC] ✓ Using ${rpcUrl.replace('https://','').slice(0,40)}`);
-                        rpcConnected = true;
-                        connected = true;
-                        break;
-                    } catch (rpcErr) {
-                        addLog(`[RPC] ✗ ${rpcUrl.replace('https://','').slice(0,30)} failed: ${rpcErr.message || 'Network Error'}`);
-                        console.error('RPC Error details:', rpcErr);
+                addLog('[WALLET] Initializing D-MEX Sandbox Wallet...');
+                try {
+                    // Create burner wallet without requiring a live RPC
+                    // All swap/balance logic runs off localStorage sandbox
+                    const burnerKey = getOrCreateBurnerKey();
+                    const burnerWallet = new ethers.Wallet(burnerKey);
+                    userAddr = burnerWallet.address;
+
+                    // Try to attach a provider for read calls (silent — sandbox works without it)
+                    for (const rpcUrl of SCROLL_SEPOLIA_RPCS) {
+                        try {
+                            const net = ethers.Network.from(SCROLL_SEPOLIA_CHAIN_ID);
+                            const testProvider = new ethers.JsonRpcProvider(rpcUrl, net, { staticNetwork: net });
+                            await withTimeout(testProvider.getBlockNumber(), 3000, 'RPC check');
+                            provider = testProvider;
+                            signer = burnerWallet.connect(provider);
+                            break;
+                        } catch (_) { /* silent — sandbox works without RPC */ }
                     }
-                }
-                if (!rpcConnected) {
-                    addLog('[ERROR] All RPC endpoints failed. Check your internet connection.');
-                    showToast('All RPCs failed — check connectivity', 'error');
+                    // If no RPC connected, use wallet without provider (sandbox-only mode)
+                    if (!provider) {
+                        signer = burnerWallet;
+                        provider = null;
+                    }
+
+                    addLog(`[WALLET] Sandbox connected: ${shortAddr(userAddr)}`);
+                    connected = true;
+                } catch (e) {
+                    addLog('[ERROR] Could not initialize sandbox wallet: ' + e.message);
                 }
             } else if (!connected && !forceDirect) {
-                // MetaMask was rejected by user — don't auto-fallback
-                throw new Error("MetaMask connection cancelled. Use 'Direct RPC' for testnet access.");
+                throw new Error("MetaMask connection cancelled. Use 'D-MEX Sandbox Wallet' to continue.");
             }
 
             if (connected) {
